@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-const AccodianItem = ({num, title, text}) => {
-  const [isOpen, setIsOpen] = useState(false);
-   
+import React from 'react'
+const AccodianItem = ({num, title,curOpen, onOpen, children}) => {
+  const isOpen = num === curOpen
   function handleToggle() {
-    setIsOpen((isOpen) => !isOpen);
+    onOpen(isOpen ? null : num) ;
   }
  
   return (
@@ -11,7 +10,7 @@ const AccodianItem = ({num, title, text}) => {
       <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
       <p className="title">{title}</p>
       <p className="icon">{isOpen ? "-" : "+"}</p>
-      {isOpen && <div className="content-box">{text}</div>}
+      {isOpen && <div className="content-box">{children}</div>}
     </div>
   );
 }

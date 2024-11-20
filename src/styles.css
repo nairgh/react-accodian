@@ -79,6 +79,9 @@ body {
   flex-direction: column;
   gap: 12px;
 }
+.list {
+  list-style: none;
+}
 
 /* OPEN STATE */
 .open {
